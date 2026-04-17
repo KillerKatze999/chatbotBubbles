@@ -5,7 +5,12 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://bubbles4dus.de",
+    "http://localhost:3000"
+  ]
+}));
 app.use(express.json());
 
 console.log("API Key loaded:", process.env.bubbles4dus_key ? "YES" : "NO");
